@@ -1,0 +1,7 @@
+type Issue {
+    id: ID!
+    title: String!
+    description: String!
+#    parentIssue: Issue
+    projectIssue: Project!
+}

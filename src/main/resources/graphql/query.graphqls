@@ -1,0 +1,8 @@
+type Query {
+    getAllAccount: [Account]!
+    getAccount(id: ID): Account!
+    getAllProject: [Project]!
+    getProject(id: ID): Project!
+    countProjectStar(id: ID): Int!
+    getAllIssue(projectId: ID): [Issue]!
+}

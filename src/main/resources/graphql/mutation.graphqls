@@ -1,0 +1,7 @@
+type Mutation {
+    createAccount(input: AccountInput!): Account!
+    createProject(input: ProjectInput!): Project!
+    createIssue(input: IssueInput!): Issue!
+    toogleStarProject(accountId: ID!, projectId: ID!): Account!
+    toogleSubsProject(accountId: ID!, projectId: ID!): Account!
+}

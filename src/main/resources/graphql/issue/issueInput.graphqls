@@ -1,0 +1,6 @@
+input IssueInput {
+    title: String!
+    description: String!
+    parentIssueId: ID
+    projectId: ID
+}
