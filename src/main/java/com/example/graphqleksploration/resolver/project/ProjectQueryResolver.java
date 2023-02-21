@@ -1,30 +1,36 @@
 package com.example.graphqleksploration.resolver.project;
 
-import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import com.example.graphqleksploration.model.project.Project;
 import com.example.graphqleksploration.service.ProjectService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.graphql.data.method.annotation.Argument;
+import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 
 import java.util.List;
 
 @Slf4j
 @Component
-public class ProjectQueryResolver implements GraphQLQueryResolver {
+@Controller
+public class ProjectQueryResolver {
 
     @Autowired
     ProjectService projectService;
 
+    @QueryMapping
     public List<Project> getAllProject() {
         return projectService.getAllProject();
     }
 
-    public Project getProject(int id) {
+    @QueryMapping
+    public Project getProject(@Argument int id) {
         return projectService.getProjectById(id);
     }
 
-    public Integer countProjectStar(int id) {
+    @QueryMapping
+    public Integer countProjectStar(@Argument int id) {
         return projectService.countProjectStar(id);
     }
 }

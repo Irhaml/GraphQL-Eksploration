@@ -1,19 +1,23 @@
 package com.example.graphqleksploration.resolver.issue;
 
-import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import com.example.graphqleksploration.model.issue.Issue;
 import com.example.graphqleksploration.service.IssueService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.graphql.data.method.annotation.Argument;
+import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 
 import java.util.List;
 @Component
-public class IssueQueryResolver implements GraphQLQueryResolver {
+@Controller
+public class IssueQueryResolver {
 
     @Autowired
     IssueService issueService;
 
-    public List<Issue> getAllIssue(int projectId) {
+    @QueryMapping
+    public List<Issue> getAllIssue(@Argument int projectId) {
         return issueService.getAllIssue(projectId);
     }
 }
